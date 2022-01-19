@@ -1,7 +1,8 @@
 import { Modal, Button, InputGroup, Form } from "react-bootstrap";
 import React, { useState } from "react";
+import roomStore from "../roomStore";
 
-export default function CreateRoomModal({ isOpen, closeModal, createRoom }) {
+export default function CreateRoomModal({ isOpen, closeModal }) {
   const [room, setRoom] = useState({
     title: "",
     image: "",
@@ -16,7 +17,7 @@ export default function CreateRoomModal({ isOpen, closeModal, createRoom }) {
     // to do : stop page from refreshing
     // call a function from app to create a room (pass room as a parameter)
     e.preventDefault();
-    createRoom(room);
+    roomStore.createRoom(room);
     closeModal(); // this is to close the modal that is shown
   };
   return (
